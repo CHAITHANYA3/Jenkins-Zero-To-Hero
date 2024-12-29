@@ -19,6 +19,7 @@ pipeline {
         sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn clean package'
       }
     }
+    */
     stage('Static Code Analysis') {
       environment {
         SONAR_URL = "http://43.205.241.95:9000/"
@@ -28,8 +29,8 @@ pipeline {
           sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
       }
-    }
-    stage('Build and Push Docker Image') {
+    } */
+  /* stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
@@ -44,8 +45,8 @@ pipeline {
             }
         }
       }
-    }
-    stage('Update Deployment File') {
+    }*/
+   /* stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
             GIT_USER_NAME = "CHAITHANYA3"
@@ -63,6 +64,6 @@ pipeline {
                 '''
             }
         }
-    }
+    } */
   }
 }
